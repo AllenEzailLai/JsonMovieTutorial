@@ -11,21 +11,25 @@ import UIKit
 class MovieTableViewController: UITableViewController {
 //    var titleStringArray = NSMutableArray()
 //    var webString = NSMutableArray()
+    
+    var movieList = NSArray()
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        var movieData = MoviesData()
+        var moviesData = MoviesData()
 //        var movieList = movieData.getMovieDataFromArray()
 //        for result in movieList {
 //          titleStringArray.addObject(result.objectForKey("title")!)
 //          webString.addObject(result.objectForKey("webSales")!)
 //        }
+        
+        movieList = moviesData.getMovieList()
     }
 
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-      return 0
+      return movieList.count
 //        return titleStringArray.count
     }
     
@@ -36,12 +40,20 @@ class MovieTableViewController: UITableViewController {
 //        cell.textLabel?.text = titleStringArray.objectAtIndex(indexPath)
 //      
 //        cell.detailTextLabel?.text = webString[indexPath.row] as NSString
+        
+        cell.textLabel?.text = movieList[indexPath.row].title
+        
         return cell
     }
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        if segue.identifier == "showDetail" {
+            let path = self.tableView.indexPathForSelectedRow()
+            var data = movieList[path!.row] as MainData
+            
+            (segue.destinationViewController as DetailTableViewController).movieDetail = data
+        }
     }
     
 

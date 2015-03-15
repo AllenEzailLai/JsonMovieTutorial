@@ -17,8 +17,8 @@ class MoviesShowInfo: NSObject {
   
   init(showInfo: NSDictionary) {
     time = showInfo.objectForKey("time") as? String
-    location = showInfo.objectForKey("lacation") as? String
-    locationName = showInfo.objectForKey("loacationName") as? String
+    location = showInfo.objectForKey("location") as? String
+    locationName = showInfo.objectForKey("locationName") as? String
     
     latitude = (showInfo.objectForKey("latitude") as? NSString)?.doubleValue
     longitude = (showInfo.objectForKey("longitude") as? NSString)?.doubleValue

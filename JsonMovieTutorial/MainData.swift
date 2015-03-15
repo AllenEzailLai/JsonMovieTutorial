@@ -20,13 +20,13 @@ class MainData: NSObject {
     var longitude: Double
     
     override init() {
-        descriptionFilterHtml = ""
+        descriptionFilterHtml = " "
         showTimeList = NSArray()
-        address = ""
-        title = ""
-        name = ""
-        time = ""
-        location = ""
+        address = " "
+        title = " "
+        name = " "
+        time = " "
+        location = " "
         latitude = 0.0
         longitude = 0.0
     }
