@@ -46,12 +46,16 @@ class DetailTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.font = UIFont.boldSystemFontOfSize(15.0)
+        cell.textLabel?.textColor = UIColor.blueColor()
+        
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = movieDetail?.title
             return cell
         case 1:
             cell.textLabel?.text = movieDetail?.location
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             return cell
         case 2:
             var showTimeString = ""
@@ -88,6 +92,17 @@ class DetailTableViewController: UITableViewController {
             return "其它資訊"
         default:
             return ""
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.section == 1 {
+            var mapView = self.storyboard?.instantiateViewControllerWithIdentifier("MapView") as MapViewController
+            mapView.latitude = movieDetail?.latitude
+            mapView.longitude = movieDetail?.longitude
+            mapView.annotationTitle = movieDetail?.name
+            self.navigationController?.pushViewController(mapView, animated: true)
         }
     }
 

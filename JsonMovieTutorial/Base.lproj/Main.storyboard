@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wKc-Se-mtw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Movie Table View Controller-->
@@ -18,15 +19,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p5X-zU-qjd" id="7rd-qH-qfG">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j8B-M5-k9P">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j8B-M5-k9P">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q28-0S-XZN">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VCp-bA-rVA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="VCp-bA-rVA">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VCp-bA-rVA" id="oBu-8x-Fb3">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -73,6 +74,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="laf-iD-edM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1866" y="293"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="c5S-4X-Ub1">
+            <objects>
+                <viewController storyboardIdentifier="MapView" id="7Gw-Lc-FAj" customClass="MapViewController" customModule="JsonMovieTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9k-XJ-eIL"/>
+                        <viewControllerLayoutGuide type="bottom" id="k9Z-9h-MLt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="df9-5j-LuL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="J4C-gn-2Zg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J4C-gn-2Zg" firstAttribute="leading" secondItem="df9-5j-LuL" secondAttribute="leadingMargin" constant="-16" id="Igb-uG-N3I"/>
+                            <constraint firstItem="k9Z-9h-MLt" firstAttribute="top" secondItem="J4C-gn-2Zg" secondAttribute="bottom" id="NRa-sR-Xj7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J4C-gn-2Zg" secondAttribute="trailing" constant="-16" id="oFL-t5-oOT"/>
+                            <constraint firstItem="J4C-gn-2Zg" firstAttribute="top" secondItem="df9-5j-LuL" secondAttribute="topMargin" id="qoa-0V-05Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="J4C-gn-2Zg" id="D6Y-f8-t1s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58Q-P2-Qez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2539" y="293"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y0j-cb-Xjd">
